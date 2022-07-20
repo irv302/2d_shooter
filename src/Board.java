@@ -104,20 +104,21 @@ public class Board extends JPanel implements Runnable, MouseListener
 public void moveAlien(){
     for(int i=0; i<a.length; i++){
         if(a[i].moveLeft==true){
-            a[i].x -= 2;
+            a[i].x -= 1;
         }
 
         if(a[i].moveRight==true){
-            a[i].x += 2;
+            a[i].x += 1;
         }
         
-
+    for(int i=0; i<a.length; i++){
     if(a[i].x > BOARD_WIDTH){
         for(int j=0; j<a.length; j++){
             a[j].moveLeft=true;
             a[j].moveRight=false;
+            a[j].y += 5;
         }
-        
+    }
 
     }
 
@@ -125,6 +126,7 @@ public void moveAlien(){
         for(int j=0; j<a.length; j++){
             a[j].moveRight=true;
             a[j].moveLeft=false;
+            a[j].y += 5;
         }
 
     } 
