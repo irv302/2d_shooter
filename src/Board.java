@@ -30,7 +30,7 @@ public class Board extends JPanel implements Runnable, MouseListener
     int BOARD_HEIGHT=500;
     int x = 0;
     BufferedImage img;
-    String message = "Click Board to Start";
+    String message = "GA is amazing!!";
     private Thread animator;
     Player p;
     Alien[] a = new Alien [10];
@@ -71,10 +71,10 @@ public class Board extends JPanel implements Runnable, MouseListener
     {
         super.paint(g);
 
-        g.setColor(Color.white);
+        g.setColor(Color.gray);
         g.fillRect(0, 0, d.width, d.height);
 
-        g.setColor(Color.red);
+        g.setColor(Color.blue);
         g.fillRect(p.x, p.y, 20, 20);
         if(p.moveRight==true)
             p.x += p.speed;
@@ -104,21 +104,20 @@ public class Board extends JPanel implements Runnable, MouseListener
 public void moveAlien(){
     for(int i=0; i<a.length; i++){
         if(a[i].moveLeft==true){
-            a[i].x -= 1;
+            a[i].x -= 2;
         }
 
         if(a[i].moveRight==true){
-            a[i].x += 1;
+            a[i].x += 2;
         }
         
-    for(int i=0; i<a.length; i++){
+
     if(a[i].x > BOARD_WIDTH){
         for(int j=0; j<a.length; j++){
             a[j].moveLeft=true;
             a[j].moveRight=false;
-            a[j].y += 5;
         }
-    }
+        
 
     }
 
@@ -126,7 +125,6 @@ public void moveAlien(){
         for(int j=0; j<a.length; j++){
             a[j].moveRight=true;
             a[j].moveLeft=false;
-            a[j].y += 5;
         }
 
     } 
