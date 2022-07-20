@@ -6,7 +6,7 @@ public class Starter extends JFrame {
     public Starter()
     {
         add(new Board());
-        setTitle("Space Invade");
+        setTitle("G A Fire!!");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(550, 500);
         setLocationRelativeTo(null);

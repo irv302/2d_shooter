@@ -71,10 +71,10 @@ public class Board extends JPanel implements Runnable, MouseListener
     {
         super.paint(g);
 
-        g.setColor(Color.gray);
+        g.setColor(Color.green);
         g.fillRect(0, 0, d.width, d.height);
 
-        g.setColor(Color.blue);
+        g.setColor(Color.red);
         g.fillRect(p.x, p.y, 20, 20);
         if(p.moveRight==true)
             p.x += p.speed;

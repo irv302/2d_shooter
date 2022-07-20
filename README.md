@@ -23,3 +23,8 @@ The game will have a fire funtion and boss battle
 
 
 https://trello.com/b/Vp1jQbJh/op-chracter-collector
+
+
+***** figma ****
+
+https://www.figma.com/file/iNJyNW2lTBt3p07q2hOl54/Untitled?node-id=0%3A1
