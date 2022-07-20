@@ -1,8 +1,8 @@
 # 2d_shooter
-***** Thech ****
+***** Tech ****
 
 
-Alll JAva Baby
+Alll JAva Baby !!
 
 
 
