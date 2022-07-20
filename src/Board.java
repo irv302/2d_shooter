@@ -8,25 +8,25 @@ import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.Timer;
+// import javax.swing.Timer;
 
-import org.w3c.dom.DOMImplementationSource;
+// import org.w3c.dom.DOMImplementationSource;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Random;
+// import java.util.ArrayList;
+// import java.util.Iterator;
+// import java.util.Random;
 
-import javax.swing.ImageIcon;
+// import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.imageio.*;
+// import javax.imageio.*;
 import java.awt.image.*;
-import java.io.*;
+// import java.io.*;
 
 public class Board extends JPanel implements Runnable, MouseListener
 {
     boolean ingame = true;
     private Dimension d;
-    int BOARD_WIDTH=500;
+    int BOARD_WIDTH=550;
     int BOARD_HEIGHT=500;
     int x = 0;
     BufferedImage img;
@@ -50,7 +50,7 @@ public class Board extends JPanel implements Runnable, MouseListener
             a[i] = new Alien(ax,ay,10);
             //shifting the alien
             ax += 40; 
-            if(i==9){
+            if(i==4){
                 ax=10;
                 ay += 40;//down to the next row
 
@@ -78,13 +78,13 @@ public class Board extends JPanel implements Runnable, MouseListener
         g.fillRect(p.x, p.y, 20, 20);
         if(p.moveRight==true)
             p.x += p.speed;
-
+        moveAlien();
         if(p.moveLeft == true)
             p.x -= p.speed;
 
         for(int i=0; i<a.length; i++){
             g.fillRect(a[i].x, a[i].y, 30, 30);
-            
+
         }
 
         Font small = new Font("Helvetica", Font.BOLD, 14);
@@ -100,6 +100,39 @@ public class Board extends JPanel implements Runnable, MouseListener
     Toolkit.getDefaultToolkit().sync();
     g.dispose();
 }
+
+public void moveAlien(){
+    for(int i=0; i<a.length; i++){
+        if(a[i].moveLeft==true){
+            a[i].x -= 2;
+        }
+
+        if(a[i].moveRight==true){
+            a[i].x += 2;
+        }
+        
+
+    if(a[i].x > BOARD_WIDTH){
+        for(int j=0; j<a.length; j++){
+            a[j].moveLeft=true;
+            a[j].moveRight=false;
+        }
+        
+
+    }
+
+    if(a[i].x < 0){
+        for(int j=0; j<a.length; j++){
+            a[j].moveRight=true;
+            a[j].moveLeft=false;
+        }
+
+    } 
+    //a[i].y += 2;
+
+    }
+}
+
 private class TAdapter extends KeyAdapter {
 
     public void keyReleased(KeyEvent e) {
@@ -166,6 +199,7 @@ public void run() {
             }
         }
 }
+
 
 @Override
 public void mouseReleased(MouseEvent e) {

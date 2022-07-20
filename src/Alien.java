@@ -8,7 +8,7 @@ public class Alien extends Character{
         super(x,y,s);
 
         moveLeft=false;
-        moveRight=false;
+        moveRight=true;
         isVisible=true;
     }
     

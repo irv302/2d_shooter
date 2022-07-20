@@ -8,7 +8,7 @@ public class Starter extends JFrame {
         add(new Board());
         setTitle("Space Invade");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500, 500);
+        setSize(550, 500);
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
