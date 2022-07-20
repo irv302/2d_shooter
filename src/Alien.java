@@ -1,13 +1,15 @@
-public class Player extends Character{
+public class Alien extends Character{
 
     boolean moveRight;
     boolean moveLeft;
+    boolean isVisible;
 
-    public Player(int x, int y, int s) {
+    public Alien(int x, int y, int s) {
         super(x,y,s);
 
         moveLeft=false;
         moveRight=false;
+        isVisible=true;
     }
     
     

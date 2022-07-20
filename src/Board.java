@@ -32,7 +32,8 @@ public class Board extends JPanel implements Runnable, MouseListener
     BufferedImage img;
     String message = "Click Board to Start";
     private Thread animator;
-    Charater p;
+    Player p;
+    Alien[] a = new Alien [10];
 
     public Board()
     {
@@ -41,6 +42,20 @@ public class Board extends JPanel implements Runnable, MouseListener
         setFocusable(true);
         d = new Dimension(BOARD_WIDTH, BOARD_HEIGHT);
         p = new Player( BOARD_WIDTH/2, BOARD_HEIGHT-60, 5 );
+
+        int ax = 10;
+        int ay = 10;
+        
+        for(int i=0; i<a.length; i++){
+            a[i] = new Alien(ax,ay,10);
+            //shifting the alien
+            ax += 40; 
+            if(i==9){
+                ax=10;
+                ay += 40;//down to the next row
+
+            }
+        }
 
         setBackground(Color.black);
 
@@ -66,6 +81,11 @@ public class Board extends JPanel implements Runnable, MouseListener
 
         if(p.moveLeft == true)
             p.x -= p.speed;
+
+        for(int i=0; i<a.length; i++){
+            g.fillRect(a[i].x, a[i].y, 30, 30);
+            
+        }
 
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics metr = this.getFontMetrics(small);
@@ -132,7 +152,7 @@ public void run() {
     long beforeTime, timeDiff, sleep;
 
     beforeTime = System.currentTimeMillis();
-    int animationDelay = 500;
+    int animationDelay = 10;
     long time =
             System.currentTimeMillis();
     while (true) {

@@ -1,4 +1,4 @@
-public class Charater {
+public class Character {
 
     int x;
     int y;
@@ -6,11 +6,11 @@ public class Charater {
     public boolean moveRight;
     public boolean moveLeft;
 
-    public Charater(){
+    public Character(){
 
     }
 
-    public Charater(int x, int y, int speed){
+    public Character(int x, int y, int speed){
         this.x = x;
         this.y = y;
         this.speed = speed;
